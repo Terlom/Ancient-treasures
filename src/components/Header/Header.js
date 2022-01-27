@@ -7,6 +7,15 @@ import cartIcon from '../../imgs/cart-icon.svg';
 import mobileMenu from '../../imgs/mobile-menu.svg';
 
 const Header = () => {
+
+    const openCartPreview =()=>{
+        const cartPreview = document.getElementById("cart-preview");
+        const layer = document.getElementById('layer');
+        cartPreview.style.display = 'flex';
+        layer.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
     return(
         <header>
             <div className="container header__container mobile-container">
@@ -32,6 +41,7 @@ const Header = () => {
                         alt = 'search-icon'
                     />
                     <Action
+                        handleAction = {openCartPreview}
                         src = {cartIcon}
                         alt = 'cart-icon'
                     />

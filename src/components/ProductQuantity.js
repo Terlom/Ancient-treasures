@@ -1,13 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 
 const ProductQuantity = (props) => {
-    let input = document.getElementById('product-quantity__value');
+    const [quantity, setQuantity] = useState(1);
+
+    // let maxValue = props.quantity
     const decreaseQuantity = () => {
-        input.stepDown();
+        if(quantity>1){
+            setQuantity(quantity-1);
+        }
     }
 
     const increaseQuantity = () => {
-        input.stepUp();
+        if(quantity<5){
+            setQuantity(quantity+1);
+        }
     }
     return (
         <div className={"product-quantity"}>
@@ -16,9 +22,9 @@ const ProductQuantity = (props) => {
                 className={"product-quantity__value"}
                 id={'product-quantity__value'}
                 type="number"
-                value="2"
+                value={quantity}
                 min="1"
-                max="25"
+                max={props.quantity}
                 step="1"
                 required
             readOnly={true}/>

@@ -2,7 +2,8 @@ import React from "react";
 import productImgs1 from '../imgs/product1.png';
 import productImgs2 from '../imgs/product2.png';
 import productImgs3 from '../imgs/product3.png';
-import ProductQuantity from "../components/Header/components/ProductQuantity";
+import ProductQuantity from "../components/ProductQuantity";
+import CartPreview from "../components/CartPreview/CartPreview";
 
 
 const Product = () => {
@@ -26,12 +27,6 @@ const Product = () => {
                     <p>The hand made chain connects together with a lobster clamp.</p>
                 </div>
         })
-    const handleChangeImg = (e) =>{
-        let kek = e.target.getAttribute('src')
-        e.target.classList.add('active')
-        document.getElementById("selected-img").setAttribute("src", kek)
-
-    }
 
     return(
         <main>
@@ -40,7 +35,7 @@ const Product = () => {
                     <img id={"selected-img"} className={"selected-img"} src={product.imgs[0]} alt="Selected img"/>
                     <div className="collection-imgs" id={"collection-imgs"}>
                         {
-                            product.imgs.map(img => (<img className={"product-img"} onClick={handleChangeImg} src={img}
+                            product.imgs.map(img => (<img className={"product-img"}  src={img}
                                                           alt="Product images"/>))
                         }
                     </div>
@@ -66,7 +61,7 @@ const Product = () => {
                                 <ProductQuantity
                                     quantity={product.quantity}
                                 />
-                                <button className={"add-to-cart"}>Add To Cart</button>
+                                <button className={"add-to-cart"} >Add To Cart</button>
                             </div>
                         </div>
                     </div>
@@ -77,6 +72,7 @@ const Product = () => {
                     </div>
                 </div>
             </div>
+
         </main>
     )
 }
